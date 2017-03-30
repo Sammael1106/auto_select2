@@ -86,30 +86,30 @@ jQuery ($) ->
             more = (page * limit) < data.total
             return { results: data.items, more: more }
         },
-        initSelection : (element, callback) ->
-          $element = $(element)
-          id = $element.val()
-          initText = $element.data('init-text')
-          initClassName = $element.data('init-class-name')
-          initSelectionClassName = $element.data('init-selection-class-name')
-          if (id != '')
-            if initText != undefined
-              params = { id: id, text: initText }
-              if initClassName != undefined
-                params.class_name = initClassName
-                params.selection_class_name = initSelectionClassName
-              callback(params)
-            else
-              $.ajax(path, {
-                data: { init: true, item_ids: id },
-                dataType: "json"
-              }).done((data) ->
-                if(data != null)
-                  callback(data)
-                else
-                  $element.val('')
-                  callback({ id: '', text: '' })
-              )
+#         initSelection : (element, callback) ->
+#           $element = $(element)
+#           id = $element.val()
+#           initText = $element.data('init-text')
+#           initClassName = $element.data('init-class-name')
+#           initSelectionClassName = $element.data('init-selection-class-name')
+#           if (id != '')
+#             if initText != undefined
+#               params = { id: id, text: initText }
+#               if initClassName != undefined
+#                 params.class_name = initClassName
+#                 params.selection_class_name = initSelectionClassName
+#               callback(params)
+#             else
+#               $.ajax(path, {
+#                 data: { init: true, item_ids: id },
+#                 dataType: "json"
+#               }).done((data) ->
+#                 if(data != null)
+#                   callback(data)
+#                 else
+#                   $element.val('')
+#                   callback({ id: '', text: '' })
+#               )
       }
 
       s2UserOptions = $input.data("s2-options")
